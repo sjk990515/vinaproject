@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "MonoplexKR-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2")
+        format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*profile*/
+
+/* 모달 */
+
+/* #open {
+    all: unset;
+    background-color: #ffccbc;
+    color: white;
+    padding: 5px 20px;
+    margin: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+} */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999;
+}
+
+.modal_overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+/* #wrap {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 100px;
+    width: 90%;
+} */
+.profile_box {
+    position: absolute;
+    width: 700px;
+    height: 550px;
+    background: #ffffee;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+}
+
+/* 닫기 버튼 */
+input[type="button"] {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 20px;
+}
+
+input[type="button"]:hover {
+    background-color: black;
+    color: white;
+}
+
+/* 프로필 사진 첨부 영역 */
+#profileView {
+    display: block;
+    width: 180px;
+    height: 180px;
+    border-radius: 99px;
+    margin: 100px 0 10px 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.profileBtnText {
+    font-family: "MonoplexKR-Regular";
+    margin-left: 350px;
+    font-size: x-small;
+    font-weight: bold;
+    color: gray;
+    position: absolute;
+    display: none;
+}
+
+#profileView:hover + .profileBtnText {
+    display: block;
+}
+
+/* 프로필 네임 */
+
+/* .profile_box > h2 {
+    font-family: "MonoplexKR-Regular";
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 15px 8px 15px;
+} */
+.profile-inputBox {
+    background-color: #000;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#profileNickname {
+    font-family: "MonoplexKR-Regular";
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    background-color: #ffffee;
+    border: none;
+}
+
+.profile_box > b {
+    display: block;
+    width: 600px;
+    height: 1px;
+    background: #000;
+    margin: 0 auto;
+}
+
+/* 취소, 저장 버튼 */
+.cancel-save-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cancelBtn {
+    font-family: "MonoplexKR-Regular";
+    font-size: 18px;
+    font-weight: bold;
+    background-color: transparent;
+    color: black;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    border-color: transparent;
+}
+
+.cancelBtn:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.saveBtn {
+    font-family: "MonoplexKR-Regular";
+    font-size: large;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: transparent;
+    color: black;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    border-color: transparent;
+}
+
+.saveBtn:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}

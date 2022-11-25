@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "LINESeedKR-Bd";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
+        format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 모달 */
+.pageModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+}
+
+.pageModal_overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.cardModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+}
+
+.cardModal_overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+/* Body 속성 */
+.postWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 게시물 페이지 전체 속성 */
+.editContainer {
+    /* position: absolute; */
+    background-color: #ffffee;
+    width: 700px;
+    height: 860px;
+    margin-top: 35px;
+    box-shadow: 2px 2px 7px 0px gray;
+}
+
+/* 페이지 닫기 버튼 */
+.pageExit {
+    float: right;
+    margin: 5px 10px 5px 0;
+    padding: 0 5px 0 5px;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.pageExit:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+.cardModalExit {
+    float: right;
+    margin: 5px 10px 5px 0;
+    padding: 0 5px 0 5px;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.cardModalExit:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+/* 제목 */
+#postingTitle {
+    font-family: "MonoplexKR-Regular";
+    border: none;
+    background-color: #ffffee;
+    font-size: 1.5em;
+    width: 640px;
+    height: 60px;
+    margin: 30px 30px 5px 30px;
+}
+
+.text_line {
+    margin: 0 auto;
+    display: block;
+    width: 620px;
+    height: 1px;
+    border: 0;
+    background-color: rgb(223, 219, 219);
+}
+
+/* 이미지 파일 첨부 영역 */
+.editPage{
+    position:relative;
+}
+
+.image-file-button {
+    top:150px;
+    left:15%;
+    transform:translateX(-50%);
+    position:absolute;
+    display: flex;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.image-file-button img{
+    position:absolute;
+    top:0;
+    left:145px;
+    width:210px;
+    height:210px;
+}
+
+.imageBtnText {
+    font-family: "MonoplexKR-Regular";
+    margin-left: 45px;
+    font-size: x-small;
+    color: gray;
+    position: absolute;
+    display: none;
+}
+
+.image-file-button:hover + .imageBtnText {
+    display: block;
+}
+
+/* 게시물 작성 칸 */
+.PAGE {
+    font-family: "MonoplexKR-Regular";
+    border: none;
+    background-color: #ffffee;
+    font-size: 1.5em;
+    width: 640px;
+    height: 100%;
+    margin: 20px 30px 5px 30px;
+    /* overflow-y: scroll; */
+}
+
+#DESC {
+    background-color: #ffffee;
+    border-radius: 10px;
+    border: none;
+    font-family: "MonoplexKR-Regular";
+    color: black;
+    overflow-y: auto;
+    margin-top:180px;
+    height:370px;
+}
+
+#DESC::-webkit-scrollbar {
+    width: 5px;
+}
+
+#DESC::-webkit-scrollbar-thumb {
+    background-color: #ffccbc;
+    border-radius: 20px;
+}
+
+#DESC::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+/* .description {
+    border: 1px solid gray;
+    width: 670px;
+    max-height: 700px;
+    margin: 10px;
+    padding: 16px 24px;
+} */
+
+/* 수정, 삭제 버튼 영역 */
+.Edit_Delete_btn {
+    float: right;
+    margin-right: 25px;
+    margin-top: 70px;
+}
+
+.editBtn {
+    font-family: "MonoplexKR-Regular";
+    font-weight: bold;
+    /* margin-right: 10px; */
+    background-color: transparent;
+    color: black;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-color: transparent;
+}
+
+.editBtn:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.deleteBtn {
+    font-family: "MonoplexKR-Regular";
+    font-weight: bold;
+    background-color: transparent;
+    color: black;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    border-color: transparent;
+}
+
+.deleteBtn:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}

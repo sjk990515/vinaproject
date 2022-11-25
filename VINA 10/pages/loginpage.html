@@ -1,0 +1,101 @@
+<div class="loginpage">
+    <div class="sp-login">
+        <div class="SignInContainer">
+            <h1>Please Login</h1>
+            <form onsubmit="handleAuth(event)">
+                <div class="form-control">
+                    <input id = "SIemail" type="text" required /
+                    onfocus="animateLabel(event)" >
+                    <label for="">Email</label>
+                </div>
+                <div class="form-control">
+                    <input id ="SIpassword" type="password" required /
+                    onfocus="animateLabel(event)">
+                    <label>Password</label>
+                </div>
+                <section id="authBtnSection">
+                    <button
+                        type="submit"
+                        id="signInBtn"
+                        class="btn"
+                        value="로그인"
+                    >
+                        Sign in
+                    </button>
+                </section>
+
+                <p class="text">Vinabro의 계정이 없다면?</p>
+                <div class="socialBtns">
+                    <button
+                        onclick="socialLogin(event)"
+                        type="submit"
+                        id="googleBtn"
+                        class="google"
+                        name="google"
+                    ></button>
+                    <button
+                        onclick="socialLogin(event)"
+                        type="submit"
+                        id="githubBtn"
+                        class="github"
+                        name="github"
+                    ></button>
+                </div>
+                <button
+                    type="submit"
+                    id="signUpBtn"
+                    class="btn"
+                    value="회원가입"
+                >
+                    Sign Up
+                </button>
+            </form>
+        </div>
+        <!--  -->
+        <div class="SignUpContainer">
+            <h2>Vinabro</h2>
+            <form onsubmit="handleAuth(event)">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ipsam, beatae accusantium culpa animi eaque iure eum
+                    consectetur similique. Et numquam autem assumenda soluta ab
+                    fugiat quaerat quae aspernatur sed libero.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quae quos, provident odio soluta commodi iusto perspiciatis
+                    quisquam facere explicabo sapiente architecto nam eius
+                    accusantium impedit nisi labore tempora quia aliquid?
+                </p>
+                <!-- <div class="form-control">
+                  <input id="SUusername" type="text" required /
+                  onfocus="animateLabel(event)">
+                  <label for="">Username</label>
+              </div>
+              <div class="form-control">
+                  <input id="SUemail" type="text" required /
+                  onfocus="animateLabel(event)">
+                  <label for="">Email</label>
+              </div>
+              <div class="form-control">
+                  <input id="SUpassword" type="password" required /
+                  onfocus="animateLabel(event)">
+                  <label>Password</label>
+              </div>
+              <div class="form-control">
+                  <input id="SUconfirmpassword" type="password" required /
+                  onfocus="animateLabel(event)">
+                  <label>Confirm Password</label>
+              </div> -->
+                <!-- <button
+                  type="submit"
+                  id="signUpBtn"
+                  class="btn"
+                  value="회원가입"
+              >
+                  Sign Up
+              </button> -->
+            </form>
+        </div>
+    </div>
+</div>

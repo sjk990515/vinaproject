@@ -1,0 +1,511 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "MonoplexKR-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2")
+        format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*공통*/
+#wrap {
+    font-family: "MonoplexKR-Regular";
+    width: 100%;
+    background: #fff;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.inner {
+    width: 1720px;
+    margin: 0 auto;
+}
+
+/*main*/
+/*header*/
+.header {
+    width: 100%;
+    height: 80px;
+    background: #ffeae4;
+}
+
+.in_header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header h2 {
+    font-family: "Montserrat", "Noto Sans KR", sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.header > .in_header ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.in_header ul .NAVNight span {
+    position: absolute;
+    top: 10px;
+    cursor: pointer;
+}
+
+#sun {
+    display: none;
+    color: #fff;
+}
+#moon {
+    display: block;
+}
+
+.header ul .NAVUser {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.header > .in_header ul li {
+    margin-left: 15px;
+    line-height: 100%;
+}
+
+.header > .in_header ul li:nth-child(4) {
+    display: flex;
+    align-items: center;
+}
+
+.userBTN:hover,
+.nightBTN:hover {
+    cursor: pointer;
+    border-bottom: 1px solid white;
+}
+
+.userBTN:active,
+.nightBTN:active {
+    cursor: pointer;
+    box-shadow: 1px 1px 0 rgba(226, 226, 226, 0.5);
+    position: relative;
+    top: 2px;
+}
+
+.header ul .NAVNight {
+    width: 20px;
+    height: 20px;
+
+    /* border-radius: 55px;
+    background: #212121; */
+}
+
+.header ul .search {
+    line-height: 100%;
+}
+
+.NAVSearchBTN {
+    background: #ffeae4;
+    cursor: pointer;
+    margin-right: 40px;
+    border: 0;
+    position: relative;
+    right: 33px;
+    top: 3px;
+}
+
+.NAVSearchBTN:focus,
+.input:focus {
+    outline: none;
+}
+
+.NAVSearch .input {
+    background-color: transparent;
+    border: 0;
+    font-size: 3px;
+    height: 43px;
+    width: 43px;
+    transition: 0.3s ease;
+}
+
+.NAVSearch.active .input {
+    width: 180px;
+}
+
+.NAVSearch.active .NAVSearchBTN {
+    transform: translateX(30px);
+}
+
+.header ul .login {
+    width: 60px;
+    height: 30px;
+    background: #212121;
+    color: #fff;
+    text-align: center;
+    line-height: 30px !important;
+    font-weight: 400;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.header ul li #loginButton:hover {
+    width: 70px;
+    height: 40px;
+    line-height: 40px !important;
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.header ul li #loginButton {
+    width: 60px;
+    height: 30px;
+    background: #212121;
+    color: #fff;
+    text-align: center;
+    line-height: 30px !important;
+    font-weight: 400;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.header ul li #logoutButton {
+    width: 60px;
+    height: 30px;
+    background: #212121;
+    color: #fff;
+    text-align: center;
+    line-height: 30px !important;
+    font-weight: 400;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.4s ease;
+    display: none;
+}
+
+.header ul li #logoutButton:hover {
+    width: 70px;
+    height: 40px;
+    line-height: 40px !important;
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+/*main_menu*/
+.main_menu {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.main_menu > div {
+    width: 90px;
+    height: 30px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.5s ease;
+    font-size: 14px;
+    position:relative;
+}
+
+/* .main_menu > div:hover {
+    border: 1px solid #ccc;
+} */
+.main_menu > .drop_down:hover .dropdown_content{
+    display:block;
+} 
+
+
+.main_menu > div .dropdown_btn{
+    margin-left:5px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    font-size: 14px;
+}
+
+.main_menu > div .dropdown_btn div{
+    font-size: 14px;
+}
+
+.main_menu > div .dropdown_click span{
+    display:block;
+    margin-left:10px;
+}
+
+.main_menu > div .dropdown_content{
+    display:none;
+    position:absolute;
+    top:30px;
+    left:0;
+    background:#fff;
+    z-index:9999;
+}
+
+.main_menu > div .dropdown_content div{
+    width:90px;
+    height:40px;
+    border:1px solid #ccc;
+    border-top:0;
+    line-height:40px;
+    font-size:14px;
+}
+
+.main_menu > div .dropdown_content div:hover{
+    color:orange;
+    transition:0.3s ease;
+}
+
+.main_menu > div > span {
+    font-size: 24px;
+}
+
+.main_menu .menu_active {
+    border: 1px solid #212121;
+}
+
+.main_menu > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25px;
+    margin-left: auto;
+    cursor: pointer;
+    width: 5px;
+    transition: 0.5s ease;
+}
+
+.main_menu > ul:hover {
+    width: 25px;
+}
+
+.main_menu > ul li {
+    height: 5px;
+    background: #000;
+    border-radius: 5px;
+}
+
+.main_menu > span {
+    display: none;
+    right: 0px;
+    top: 50px;
+    position: absolute;
+    width: 150px;
+    height: 180px;
+    background: #fff;
+    border-radius: 5px;
+    z-index: 9999;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.main_menu > span div p {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold !important;
+    font-size: 14px;
+    transition: 0.3s ease;
+    color: #000;
+    cursor: pointer;
+    text-align: center;
+}
+
+.main_menu > span > div p:hover {
+    color: orange;
+}
+
+.main_menu > span > p {
+    line-height: 80px;
+    text-align: center;
+    background: #ffeae4;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s ease;
+}
+
+/*main_content*/
+.main_box{
+    cursor: pointer;
+}
+.main_content {
+    font-family: "MonoplexKR-Regular";
+    margin-top: 40px;
+}
+
+.main_content > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main_content > div > div {
+    font-family: "MonoplexKR-Regular";
+    /*margin: 0 10px; 수정필요*/
+    width: 310px;
+    height: 400px;
+    background: #fff;
+    margin-top: 50px;
+    position: relative;
+    box-shadow: 3px 4px 15px 3px #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.5s ease;
+}
+
+.main_content > div > div:hover {
+    box-shadow: 3px 4px 15px 3px #727272;
+}
+
+.main_content > div > div > span{
+    display: block;
+    height: 180px;
+    overflow: hidden;    
+    background:url(../image/vinabroimg.jpg) center center;
+}
+
+.main_content > div > div > span > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    
+}
+
+.main_content > div > div > h3 {
+    font-size: 24px;
+    margin: 10px 0 0 10px;
+}
+
+.main_content > div > div > p {
+    font-size: 16px;
+    margin: 10px 0 0 10px;
+}
+
+.main_content > div > div > div {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    border-top: 1px solid #000;
+    display: flex;
+    align-items: center;
+    transition: 0.5s ease;
+}
+
+.main_content > div > div > div h4 {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.main_content > div > div > div h4 span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    border-radius: 99px;
+    margin: 0 5px 0 10px;
+}
+
+.main_content > div > div > div p {
+    margin: 0 10px 0 auto;
+    font-size: 14px;
+}
+
+
+
+/************************/
+/************************/
+/************************/
+/*main_midia*/
+@media screen and (max-width: 1800px) {
+    .inner {
+        width: 90%;
+    }
+
+    .main_content {
+        width: 1400px;
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .inner {
+        width: 85%;
+    }
+
+    .main_content {
+        width: 1250px;
+    }
+
+    .main_content > div > div {
+        width: 280px;
+        height: 380px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .main_content {
+        width: 1150px;
+    }
+
+    .main_content > ul > li {
+        width: 260px;
+        height: 370px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .main_content {
+        width: 900px;
+    }
+
+    .main_content > div > div {
+        width: 270px;
+        height: 370px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .main_content {
+        width: 800px;
+    }
+
+    .main_content > div > div {
+        width: 240px;
+        height: 340px;
+    }
+
+    .main_content > div > div > span {
+        height: 140px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main_content {
+        width: 800px;
+    }
+
+    .main_content > div > div {
+        width: 240px;
+        height: 340px;
+    }
+
+    .main_content > div > div > span {
+        height: 140px;
+    }
+}

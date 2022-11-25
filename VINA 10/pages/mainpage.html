@@ -1,0 +1,263 @@
+<div id="wrap">
+    <!--header-->
+    <div id="header" class="header">
+        <div class="in_header inner">
+            <h2 class="main_logo">Vinabro</h2>
+            <ul>
+                <li class="NAVUser">
+                    <button id="profile_BTN" class="userBTN">
+                        <span class="material-icons">person</span>
+                    </button>
+                </li>
+                <li class="NAVNight" onclick="nightsun(event)">
+                    <span id="moon" class="material-icons" style="display: block">bedtime</span>
+                    <span id="sun" class="material-icons">sunny</span>
+                </li>
+                <li class="NAVSearch">
+                    <input type="text" class="input search_input" placeholder="Search..." /><button id="main_search"
+                        class="NAVSearchBTN" onclick="toggleSearch(event)">
+                        <span class="material-icons main_search_icon">search</span>
+                    </button>
+                </li>
+                <li>
+                    <p id="welcome_nickname"></p>
+                    <!-- <span>님</span> -->
+                </li>
+                <li>
+                    <a href="#loginpage" onclick="route(event)" id="login">
+                        <button id="loginButton">Login</button>
+                        <button id="logoutButton" onclick="logout()">
+                            Logout
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- profile modal -->
+    <div class="modal hidden" data-backdrop="static">
+        <div class="modal_overlay">
+            <div id="profileBox-container">
+                <form class="profile_box" id="profileForm" onsubmit="changeProfile(event)">
+                    <div class="profile_out">
+                        <input class="modalExit" type="button" value="&#128473;" />
+                    </div>
+                    <label id="imgLabel" for="imgInput">
+                        <img id="profileView" src="../image/blankProfile.webp" />
+                        <span class="profileBtnText">이미지 클릭 시 수정 가능</span>
+                        <input onchange="onFileChange(event)" id="imgInput" type="file" style="display: none"
+                            accept="images/*" />
+                    </label>
+
+                    <div class="profile-inputBox">
+                        <input id="profileNickname" type="text" maxlength="10" placeholder="현재 닉네임" value="" />
+                    </div>
+                    <b></b>
+                    <div class="cancel-save-btn">
+                        <button onclick="" class="cancelBtn">Cancel</button>
+                        <input id="profileBtn" class="saveBtn" type="submit" value="Save" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- profile modal -->
+    <!-- 게시물 페이지 -->
+    <div class="pageModal hidden" data-backdrop="static">
+        <div class="pageModal_overlay">
+            <div class="postWrap">
+                <div class="editContainer" onsubmit="changePage(event)">
+                    <div class="editPage">
+                        <button class="pageExit">&#128473;</button>
+                        <div class="postTitle">
+                            <textarea id="postingTitle" placeholder="제목을 입력하세요."></textarea>
+                        </div>
+                        <b class="text_line"></b>
+                        <label class="image-file-button" for="input-file">
+                            <span class="material-icons">image</span>
+                            <img id="pageImg" src="" alt="" class="input-img" />
+                        </label>
+                        <input onchange="onPageImgChange(event)" type="file" id="input-file" style="display: none"
+                            accept="image/*" /><br />
+
+                        <div class="PAGE">
+                            <textarea id="DESC" cols="30" rows="20" placeholder="내용을 입력해주세요."></textarea>
+                         
+                        </div>
+                    </div>
+                    <div class="Edit_Delete_btn">
+                        <button onclick="save_comment(event)" type="button" class="saveBtn" id="pageSaveBtn">
+                            Save
+                        </button>
+                        <button onclick="onEditing(event)" class="editBtn">
+                            Edit
+                        </button>
+                        <button onclick="delete_desc(event)" class="deleteBtn">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 게시물 페이지 -->
+
+    <!--main_menu-->
+    <div class="main_menu inner">
+        <div class="menu_active">인기</div>
+        <div>최신</div>
+        <div class="drop_down">
+            <button class="dropdown_btn" >
+                <div class="dropdown_click">이번 주</div>
+                <span id="dropdown_click" class="material-icons" onclick="dropdown()">arrow_drop_down</span>
+            </button>
+            <div class="dropdown_content">
+                <div class="drop_date" onclick="showMenu(this.innerText)">이번주</div>
+                <div class="drop_date" onclick="showMenu(this.innerText)">이번달</div>
+                <div class="drop_date" onclick="showMenu(this.innerText)">이번년</div>
+            </div>
+        </div>
+        <ul onclick="toggleopenClose()">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span id="main_toggle_text">
+            <div class="pageBTN">
+                <p>게시물 작성</p>
+            </div>
+            <div class="pageBTN2">
+                <p>내 게시물</p>
+            </div>
+            <p>Vinabro</p>
+        </span>
+    </div>
+    <!--//main_menu-->
+    <!--카드 클릭 시 게시물 모달  -->
+    <!-- <div class="cardModal hidden" data-backdrop="static"> -->
+    <div id="cardModal_jieun">
+        <!-- <div class="postWrap">
+                <div class="editContainer">
+                    <div class="editPage">
+                        <button class="cardModalExit">&#128473;</button>
+                        <div class="postTitle">
+                            <textarea
+                                id="postingTitle"
+                                placeholder="제목을 입력하세요."
+                            ></textarea>
+                        </div>
+                        <b class="text_line"></b>
+                        <label class="image-file-button" for="input-file">
+                            <img src="" alt="" class="input-img" />
+                            <span class="material-icons">image</span>
+                        </label>
+                        <span class="imageBtnText">이미지 첨부</span>
+                        <input
+                            onchange="onPageImgChange(event)"
+                            type="file"
+                            id="input-file"
+                            style="display: none"
+                            accept="image/*"
+                        /><br />
+                        <div class="PAGE">
+                            <textarea
+                                id="DESC"
+                                cols="30"
+                                rows="20"
+                                placeholder="내용을 입력해주세요."
+                            ></textarea>
+                            <label for="DESC"> </label>
+                        </div>
+                    </div>
+                    <div class="Edit_Delete_btn">
+                        <button
+                            onclick="save_comment(event)"
+                            type="button"
+                            class="saveBtn"
+                        >
+                            Save
+                        </button>
+                        <button onclick="onEditing(event)" class="editBtn">
+                            Edit
+                        </button>
+                        <button onclick="delete_desc(event)" class="deleteBtn">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>-->
+    </div>
+
+    <!--카드 클릭 시 게시물 모달  -->
+       <!--main_content-->
+    <div class="main_content inner">
+        <div id="posting-list"></div>
+    </div>
+    <!--//main_content-->
+    <!--footer-->
+    <div id="footer" class="footer">
+
+        <!-- <img class="footer_img_1" src="./coding_1.png">
+    <img class="footer_img_2" src="./coding_1.png">
+    <img class="footer_img_3" src="./coding_1.png"> -->
+
+
+        <ul class="footer-box">
+
+            <li>
+
+                <h3>about</h3>
+                <p>
+                    Vinavro is a site where you can leave reviews and records on videos.
+                    We hope this site will be used to keep records.
+                </p>
+
+            </li>
+
+            <li>
+
+                <h3>Creator</h3>
+                <h4>
+                    <a href="https://talkprogramming.tistory.com/" target="_blank">김민성</a>
+                    <a href="https://yjyyls6.tistory.com/" target="_blank">한지은</a>
+                    <a href="https://velog.io/@seonghyun015b" target="_blank">성경환</a>
+                    <a href="https://prdg.tistory.com/" target="_blank">신정근
+                        <a href="https://maengjun.tistory.com/" target="_blank">김명준</a>
+                </h4>
+
+            </li>
+
+            <li>
+
+                <h3>Policy</h3>
+                <p>
+                    As your rights are precious, the rights of others such as honor,
+                    privacy, and copyright should be respected. Delete in case of violation.
+                </p>
+
+            </li>
+
+        </ul>
+
+        <ul class="footer-box2">
+
+            <li>
+
+                <h1>Vinabro</h1>
+                <audio autoplay loop controls style="width: 300px; height:40px;">
+                    <source src="./08 피아노 (Inst.).mp3" type="audio/mpeg" />
+                </audio>
+
+            </li>
+
+        </ul>
+
+    </div>
+    <!--//footer-->
+
+
+    <!--//header-->
+</div>
+</div>
+</div>
