@@ -393,7 +393,9 @@ body {
 
 .main_content > div > div > p {
     font-size: 16px;
-    margin: 10px 0 0 10px;
+    margin: 10px 10px 0 10px;
+    word-break: break-all;
+    color:#727272;
 }
 
 .main_content > div > div > div {
