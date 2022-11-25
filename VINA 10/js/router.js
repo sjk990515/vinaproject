@@ -6,7 +6,7 @@ export const route = (event) => {
     window.location.hash = event.target.hash;
 };
 
-// import { authService } from "./firebase.js";
+
 import { getPostingList } from "./pages/mainpage.js";
 // 각 페이지 마다 연결
 
@@ -123,7 +123,7 @@ export const handleLocation = async () => {
             }
         });
 
-        caches.delete(cacheName).then(() => {});
+        caches.delete(cacheName).then(() => { });
         // 로그인이 안된 상태
     }
 
