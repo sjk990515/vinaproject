@@ -18,8 +18,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 import { dbService } from "../firebase.js";
 
-// set storageService.ref(), which is not a function
-
 // %%%%%%%%%%%%%%%%%%%%%%%%%프로필 수정 기능%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 export const changeProfile = async (event) => {
@@ -235,16 +233,14 @@ export const getPostingList = async () => {
     cmtObjList.forEach((cmtObj) => {
         const isOwner = currentUid === cmtObj.creatorId;
         const temp_html = `
-                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${
-            cmtObj.pageImg ?? null
-        }" onerror="this.style.display='none';"></span>
+                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${cmtObj.pageImg ?? null
+            }" onerror="this.style.display='none';"></span>
                 <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle}</h3>
                 <p id = "postingDescription-${cmtObj.id}">${cmtObj.text}</p>
                 <div>
                     <h4><span></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>
-                    <p class="${
-                        isOwner ? "updateBtns" : "noDisplay"
-                    }>follower</p>
+                    <p class="${isOwner ? "updateBtns" : "noDisplay"
+            }>follower</p>
                 </div>
             `;
         // onclick = "ModalOpenOnMainPage(event)"

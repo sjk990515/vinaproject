@@ -1,15 +1,10 @@
 import { changeProfile } from "./pages/mainpage.js";
 import { authService } from "./firebase.js";
-
+import { getPostingList } from "./pages/mainpage.js";
 export const route = (event) => {
     event.preventDefault();
     window.location.hash = event.target.hash;
 };
-
-
-import { getPostingList } from "./pages/mainpage.js";
-// 각 페이지 마다 연결
-
 const routes = {
     "/": "/pages/mainpage.html",
     loginpage: "/pages/loginpage.html",
@@ -19,7 +14,6 @@ const routes = {
 
 export const handleLocation = async () => {
     let path = window.location.hash.replace("#", ""); // ""
-
     // "http://example.com/"가 아니라 도메인 뒤에 / 없이 "http://example.com" 으로 나오는 경우
     if (path.length == 0) {
         path = "/";
