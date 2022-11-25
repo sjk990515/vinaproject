@@ -13,25 +13,16 @@ import {
     onEditing,
     delete_comment,
 } from "./pages/mainpage.js";
-
-// hash url 변경 시 처리
 window.addEventListener("hashchange", handleLocation);
-
-// 첫 랜딩 또는 새로고침 시 처리
 document.addEventListener("DOMContentLoaded", handleLocation);
-
 authService.onAuthStateChanged((user) => {
-    // Firebase 연결되면 화면 표시
     handleLocation();
     const hash = window.location.hash;
     if (user) {
-        // 로그인 상태이므로 항상 팬명록 화면으로 이동
         if (hash === "") {
-            // 로그인 상태에서는 로그인 화면으로 되돌아갈 수 없게 설정
             window.location.replace("#mainpage");
         }
     } else {
-        // 로그아웃 상태이므로 로그인 화면으로 강제 이동
         if (hash !== "") {
             window.location.replace("");
         }
@@ -45,7 +36,6 @@ window.toggleopenClose = toggleopenClose;
 window.nightsun = nightsun;
 window.onToggle = onToggle;
 window.handleAuth = handleAuth;
-// window.goToProfile = goToProfile;
 window.socialLogin = socialLogin;
 window.logout = logout;
 window.onFileChange = onFileChange;
@@ -56,10 +46,8 @@ window.onEditing = onEditing;
 window.delete_comment = delete_comment;
 window.ModalOpenOnMainPage = ModalOpenOnMainPage;
 window.onPageImgChange = onPageImgChange;
-
+// window.goToProfile = goToProfile;
 // window.route = route;
-
-//그냥 함수
 
 //토글 메뉴
 function toggleopenClose() {
@@ -245,8 +233,7 @@ function animateLabel() {
             .split("")
             .map(
                 (letter, idx) =>
-                    `<span style="transition-delay:${
-                        idx * 20
+                    `<span style="transition-delay:${idx * 20
                     }ms">${letter}</span>`
             )
             .join("");
@@ -257,12 +244,8 @@ function animateLabel() {
 
 function ModalOpenOnMainPage(event) {
     console.log(event);
-    // console.log(event.target);
-    // 정확하게 Target 된 친구를 검사
     console.log(event.currentTarget);
-    // 이 함수가 바인딩 되어있는 요소를 검사
     console.log(event.currentTarget.id);
-
     const cardModalJieun = document.getElementById("cardModal_jieun");
     const Ptitle = document.querySelector(
         `#postingTitle-${event.currentTarget.id}`
@@ -320,7 +303,6 @@ function ModalOpenOnMainPage(event) {
     div12.innerHTML = Ptemp_html;
     console.log(cardModalJieun);
     cardModalJieun.appendChild(div12);
-
     const cardModalOpen = document.querySelectorAll(".main_box");
     const cardModal = document.querySelector(".cardModal");
     const cardModalClose = document.querySelector(".cardModalExit");
@@ -330,7 +312,6 @@ function ModalOpenOnMainPage(event) {
             document.body.style.overflow = "hidden";
         });
     }
-
     cardModalClose.addEventListener("click", () => {
         cardModal.classList.add("hidden");
         document.body.style.overflow = "unset";
