@@ -247,7 +247,7 @@ export const getPostingList = async () => {
                     }>follower</p>
                 </div>
             `;
-        // onclick = "ModalOpenOnMainPage(event)"
+        // onclick = "ModalOpenOnMainPage(event)".substring(0, 30)
         // `<div class="card commentCard">
         //         <div class="card-body">
         //             <blockquote class="blockquote mb-0">
