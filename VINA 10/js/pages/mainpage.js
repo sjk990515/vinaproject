@@ -161,46 +161,16 @@ export const getPostingList = async () => {
     cmtObjList.forEach((cmtObj) => {
         const isOwner = currentUid === cmtObj.creatorId;
         const temp_html = `
-<<<<<<< HEAD
-                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${cmtObj.pageImg ?? null
-            }" onerror="this.style.display='none';"></span>
-                <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle}</h3>
-                <p id = "postingDescription-${cmtObj.id}">${cmtObj.text}</p>
-=======
                 <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${cmtObj.pageImg ?? null
             }" onerror="this.style.display='none';"></span>
                 <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle.substring(0, 11)}</h3>
                 <p id = "postingDescription-${cmtObj.id}">${cmtObj.text.substring(0, 90)}</p>
->>>>>>> junggeun
                 <div>
                     <h4><span></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>
                     <p class="${isOwner ? "updateBtns" : "noDisplay"
             }>follower</p>
                 </div>
             `;
-<<<<<<< HEAD
-=======
-        // onclick = "ModalOpenOnMainPage(event)".substring(0, 30)
-        // `<div class="card commentCard">
-        //         <div class="card-body">
-        //             <blockquote class="blockquote mb-0">
-        //                 <p class="commentText">${cmtObj.text}</p>
-        //                 <p id="${cmtObj.id
-        //     }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn" onclick="update_comment(event)">완료</button></p>
-        //                 <footer class="quote-footer"><div>BY&nbsp;&nbsp;<img class="cmtImg" width="50px" height="50px" src="${cmtObj.profileImg
-        //     }" alt="profileImg" /><span>${cmtObj.nickname ?? "닉네임 없음"
-        //     }</span></div><div class="cmtAt">${new Date(cmtObj.createdAt)
-        //         .toString()
-        //         .slice(0, 25)}</div></footer>
-        //             </blockquote>
-        //             <div class="${isOwner ? "updateBtns" : "noDisplay"}">
-        //                  <button onclick="onEditing(event)" class="editBtn btn btn-dark">수정</button>
-        //               <button name="${cmtObj.id
-        //     }" onclick="delete_comment(event)" class="deleteBtn btn btn-dark">삭제</button>
-        //             </div>
-        //           </div>
-        //    </div>`;
->>>>>>> junggeun
         const div = document.createElement("div");
         div.classList.add("main_box");
         div.addEventListener("click", ModalOpenOnMainPage);
