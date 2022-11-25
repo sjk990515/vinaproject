@@ -238,8 +238,8 @@ export const getPostingList = async () => {
                 <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${
             cmtObj.pageImg ?? null
         }" onerror="this.style.display='none';"></span>
-                <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle}</h3>
-                <p id = "postingDescription-${cmtObj.id}">${cmtObj.text}</p>
+                <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle.substring(0, 11)}</h3>
+                <p id = "postingDescription-${cmtObj.id}">${cmtObj.text.substring(0, 90)}</p>
                 <div>
                     <h4><span></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>
                     <p class="${
