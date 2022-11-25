@@ -161,25 +161,22 @@ export const getPostingList = async () => {
     cmtObjList.forEach((cmtObj) => {
         const isOwner = currentUid === cmtObj.creatorId;
         const temp_html = `
-<<<<<<< HEAD
-                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${cmtObj.pageImg ?? null
-            }" onerror="this.style.display='none';"></span>
-                <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle}</h3>
-                <p id = "postingDescription-${cmtObj.id}">${cmtObj.text}</p>
-=======
-                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${cmtObj.pageImg ?? null
-            }" onerror="this.style.display='none';"></span>
-                <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle.substring(0, 11)}</h3>
-                <p id = "postingDescription-${cmtObj.id}">${cmtObj.text.substring(0, 90)}</p>
->>>>>>> junggeun
+                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${
+            cmtObj.pageImg ?? null
+        }" onerror="this.style.display='none';"></span>
+                <h3 id = "postingTitle-${
+                    cmtObj.id
+                }">${cmtObj.postingTitle.substring(0, 11)}</h3>
+                <p id = "postingDescription-${
+                    cmtObj.id
+                }">${cmtObj.text.substring(0, 90)}</p>
                 <div>
                     <h4><span></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>
-                    <p class="${isOwner ? "updateBtns" : "noDisplay"
-            }>follower</p>
+                    <p class="${
+                        isOwner ? "updateBtns" : "noDisplay"
+                    }>follower</p>
                 </div>
             `;
-<<<<<<< HEAD
-=======
         // onclick = "ModalOpenOnMainPage(event)".substring(0, 30)
         // `<div class="card commentCard">
         //         <div class="card-body">
@@ -200,7 +197,6 @@ export const getPostingList = async () => {
         //             </div>
         //           </div>
         //    </div>`;
->>>>>>> junggeun
         const div = document.createElement("div");
         div.classList.add("main_box");
         div.addEventListener("click", ModalOpenOnMainPage);
