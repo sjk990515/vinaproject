@@ -101,11 +101,9 @@ export const onEditing = (event) => {
     event.preventDefault();
     const udBtns = document.querySelectorAll(".editBtn, .deleteBtn");
     udBtns.forEach((udBtn) => (udBtn.disabled = "true"));
-
     const cardBody = event.target.parentNode.parentNode;
     const commentText = cardBody.children[0].children[0];
     const commentInputP = cardBody.children[0].children[1];
-
     commentText.classList.add("noDisplay");
     commentInputP.classList.add("d-flex");
     commentInputP.classList.remove("noDisplay");
@@ -116,14 +114,12 @@ export const update_comment = async (event) => {
     event.preventDefault();
     const newComment = event.target.parentNode.children[0].value;
     const id = event.target.parentNode.id;
-
     const parentNode = event.target.parentNode.parentNode;
     const commentText = parentNode.children[0];
     commentText.classList.remove("noDisplay");
     const commentInputP = parentNode.children[1];
     commentInputP.classList.remove("d-flex");
     commentInputP.classList.add("noDisplay");
-
     const commentRef = doc(dbService, "DESC", id);
     try {
         await updateDoc(commentRef, { text: newComment });
@@ -132,7 +128,6 @@ export const update_comment = async (event) => {
         alert(error);
     }
 };
-
 export const delete_comment = async (event) => {
     event.preventDefault();
     const id = event.target.name;
@@ -146,7 +141,6 @@ export const delete_comment = async (event) => {
         }
     }
 };
-
 export const getPostingList = async () => {
     let cmtObjList = [];
     const q = query(
@@ -173,9 +167,8 @@ export const getPostingList = async () => {
                 <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle}</h3>
                 <p id = "postingDescription-${cmtObj.id}">${cmtObj.text}</p>
 =======
-                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${
-            cmtObj.pageImg ?? null
-        }" onerror="this.style.display='none';"></span>
+                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${cmtObj.pageImg ?? null
+            }" onerror="this.style.display='none';"></span>
                 <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle.substring(0, 11)}</h3>
                 <p id = "postingDescription-${cmtObj.id}">${cmtObj.text.substring(0, 90)}</p>
 >>>>>>> junggeun
