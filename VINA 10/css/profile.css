@@ -7,6 +7,9 @@
     font-weight: 400;
     font-style: normal;
 }
+.noDisplay {
+    display: none;
+  }
 
 /*profile*/
 

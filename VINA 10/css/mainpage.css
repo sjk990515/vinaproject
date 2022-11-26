@@ -7,7 +7,9 @@
     font-weight: 400;
     font-style: normal;
 }
-
+.noDisplay {
+    display: none;
+  }
 /*공통*/
 #wrap {
     font-family: "MonoplexKR-Regular";

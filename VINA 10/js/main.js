@@ -289,7 +289,7 @@ function ModalOpenOnMainPage(event) {
                     <button onclick="onEditing(event)" class="editBtn">
                         Edit
                     </button>
-                    <button onclick="delete_comment(event)" class="deleteBtn">
+                    <button  onclick="delete_comment(event)" class="deleteBtn">
                         Delete
                     </button>
                 </div>                
@@ -319,4 +319,6 @@ function ModalOpenOnMainPage(event) {
         document.body.style.overflow = "unset";
     });
 }
+
+
 

@@ -87,10 +87,12 @@ export const save_comment = async (event) => {
             pageImg: pageImg,
             nickname: displayName,
         });
-        alert('게시물 저장 완료!')
+        alert("게시물 저장 완료!");
         DESC.value = "";
         postingTitle.value = "";
-        // pageImg = "";
+        // location.reload();
+        // CacheStorage.delete(pageImg)
+        // caches.delete(input-file);
         getPostingList();
 
         window.location.replace("#mainpage");
@@ -98,8 +100,6 @@ export const save_comment = async (event) => {
         alert(error);
         console.log("error in addDoc:", error);
     }
-    
-
 };
 
 export const onEditing = (event) => {
@@ -177,12 +177,18 @@ export const getPostingList = async () => {
                     cmtObj.id
                 }">${cmtObj.text.substring(0, 90)}</p>
                 <div>
-                    <h4><span></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>                        
-                    <p class="${isOwner ? "updateBtns" : "noDisplay"}>follower</p>
+                    <h4><span></span>${
+                        cmtObj.nickname ?? "닉네임 없음"
+                    }</h4>                        
+                    <button name="${
+                        cmtObj.id
+                    }" onclick="delete_comment(event)" class="${
+            isOwner ? "deleteBtn" : "noDisplay"
+        }">삭제</button>
+                    </div> 
                 </div>
             `;
-            
-       
+
         const div = document.createElement("div");
         div.classList.add("main_box");
         div.addEventListener("click", ModalOpenOnMainPage);
