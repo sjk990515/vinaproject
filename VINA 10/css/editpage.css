@@ -192,6 +192,9 @@
 } */
 
 /* 수정, 삭제 버튼 영역 */
+/* .noDisplay {
+    display: none;
+} */
 .Edit_Delete_btn {
     float: right;
     margin-right: 25px;

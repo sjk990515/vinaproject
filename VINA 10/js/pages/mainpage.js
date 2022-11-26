@@ -87,13 +87,19 @@ export const save_comment = async (event) => {
             pageImg: pageImg,
             nickname: displayName,
         });
+        alert('게시물 저장 완료!')
         DESC.value = "";
+        postingTitle.value = "";
+        // pageImg = "";
         getPostingList();
+
         window.location.replace("#mainpage");
     } catch (error) {
         alert(error);
         console.log("error in addDoc:", error);
     }
+    
+
 };
 
 export const onEditing = (event) => {
@@ -131,7 +137,7 @@ export const update_comment = async (event) => {
 export const delete_comment = async (event) => {
     event.preventDefault();
     const id = event.target.name;
-    const ok = window.confirm("해당 응원글을 정말 삭제하시겠습니까?");
+    const ok = window.confirm("해당 게시물을 정말 삭제하시겠습니까?");
     if (ok) {
         try {
             await deleteDoc(doc(dbService, "DESC", id));
@@ -171,32 +177,12 @@ export const getPostingList = async () => {
                     cmtObj.id
                 }">${cmtObj.text.substring(0, 90)}</p>
                 <div>
-                    <h4><span></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>
-                    <p class="${
-                        isOwner ? "updateBtns" : "noDisplay"
-                    }>follower</p>
+                    <h4><span></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>                        
+                    <p class="${isOwner ? "updateBtns" : "noDisplay"}>follower</p>
                 </div>
             `;
-        // onclick = "ModalOpenOnMainPage(event)".substring(0, 30)
-        // `<div class="card commentCard">
-        //         <div class="card-body">
-        //             <blockquote class="blockquote mb-0">
-        //                 <p class="commentText">${cmtObj.text}</p>
-        //                 <p id="${cmtObj.id
-        //     }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn" onclick="update_comment(event)">완료</button></p>
-        //                 <footer class="quote-footer"><div>BY&nbsp;&nbsp;<img class="cmtImg" width="50px" height="50px" src="${cmtObj.profileImg
-        //     }" alt="profileImg" /><span>${cmtObj.nickname ?? "닉네임 없음"
-        //     }</span></div><div class="cmtAt">${new Date(cmtObj.createdAt)
-        //         .toString()
-        //         .slice(0, 25)}</div></footer>
-        //             </blockquote>
-        //             <div class="${isOwner ? "updateBtns" : "noDisplay"}">
-        //                  <button onclick="onEditing(event)" class="editBtn btn btn-dark">수정</button>
-        //               <button name="${cmtObj.id
-        //     }" onclick="delete_comment(event)" class="deleteBtn btn btn-dark">삭제</button>
-        //             </div>
-        //           </div>
-        //    </div>`;
+            
+       
         const div = document.createElement("div");
         div.classList.add("main_box");
         div.addEventListener("click", ModalOpenOnMainPage);
@@ -205,6 +191,8 @@ export const getPostingList = async () => {
         postingList.appendChild(div);
     });
 };
+
+//게시물 이미지 업로드
 export const onPageImgChange = (event) => {
     const theFile = event.target.files[0];
     const reader = new FileReader();
