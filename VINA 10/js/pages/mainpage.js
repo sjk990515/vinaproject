@@ -107,7 +107,7 @@ export const onEditing = (event) => {
     const udBtns = document.querySelectorAll(".editBtn");
     udBtns.forEach((udBtn) => (udBtn.disabled = "true"));
     const cardBody = event.target.parentNode.parentNode;
-    
+
     const commentText = cardBody.children[0].children[0];
     const commentInputP = cardBody.children[0].children[1];
     commentText.classList.add("noDisplay");
@@ -200,7 +200,62 @@ export const getPostingList = async () => {
         // 삭제 시 모달 안뜨게
         const delete_btn = document.querySelectorAll("#delete_btn");
         for (let i = 0; i < delete_btn.length; i++) {
-            delete_btn[i].addEventListener('click', () => {
+            delete_btn[i].addEventListener("click", () => {
+                div.removeEventListener("click", ModalOpenOnMainPage);
+            });
+        }
+    });
+};
+
+export const basic = async () => {
+    let cmtObjList = [];
+    const q = query(
+        collection(dbService, "DESC"),
+        orderBy("createdAt", "desc")
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        const commentObj = {
+            id: doc.id,
+            ...doc.data(),
+        };
+        cmtObjList.push(commentObj);
+    });
+    const postingList = document.getElementById("posting-list"); //comment-list or commnet-list
+    // const currentUid = authService.currentUser.uid;
+    postingList.innerHTML = "";
+    cmtObjList.forEach((cmtObj) => {
+        // const isOwner = currentUid === cmtObj.creatorId;
+        const temp_html = `
+                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${
+            cmtObj.pageImg ?? null
+        }" onerror="this.style.display='none';"></span>
+                <h3 id = "postingTitle-${
+                    cmtObj.id
+                }">${cmtObj.postingTitle.substring(0, 11)}</h3>
+                <p id = "postingDescription-${
+                    cmtObj.id
+                }">${cmtObj.text.substring(0, 90)}</p>
+                <div>
+                    <h4><span></span>${
+                        cmtObj.nickname ?? "닉네임 없음"
+                    }</h4>                       
+                    
+                    </div> 
+                </div>
+            `;
+
+        const div = document.createElement("div");
+        div.classList.add("main_box");
+        div.addEventListener("click", ModalOpenOnMainPage);
+        div.innerHTML = temp_html;
+        div.id = cmtObj.id;
+        postingList.appendChild(div);
+
+        // 삭제 시 모달 안뜨게
+        const delete_btn = document.querySelectorAll("#delete_btn");
+        for (let i = 0; i < delete_btn.length; i++) {
+            delete_btn[i].addEventListener("click", () => {
                 div.removeEventListener("click", ModalOpenOnMainPage);
             });
         }
@@ -218,4 +273,3 @@ export const onPageImgChange = (event) => {
         document.getElementById("pageImg").src = pageImgDataUrl;
     };
 };
-

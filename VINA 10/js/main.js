@@ -1,5 +1,5 @@
 import { authService } from "./firebase.js";
-import { handleLocation } from "./router.js";
+import { handleLocation, loginBefore } from "./router.js";
 import { handleAuth, onToggle, logout } from "./pages/loginpage.js";
 import {
     changeProfile,
@@ -13,6 +13,9 @@ import {
     onEditing,
     delete_comment,
 } from "./pages/mainpage.js";
+window.addEventListener("hashchange", loginBefore);
+document.addEventListener("DOMContentLoaded", loginBefore);
+loginBefore();
 window.addEventListener("hashchange", handleLocation);
 document.addEventListener("DOMContentLoaded", handleLocation);
 authService.onAuthStateChanged((user) => {
@@ -234,7 +237,8 @@ function animateLabel() {
             .split("")
             .map(
                 (letter, idx) =>
-                    `<span style="transition-delay:${idx * 20
+                    `<span style="transition-delay:${
+                        idx * 20
                     }ms">${letter}</span>`
             )
             .join("");
@@ -303,11 +307,10 @@ function ModalOpenOnMainPage(event) {
     console.log(cardModalJieun);
     cardModalJieun.appendChild(div12);
 
-
     const cardModalOpen = document.querySelectorAll(".main_box");
     const cardModal = document.querySelector(".cardModal");
     const cardModalClose = document.querySelector(".cardModalExit");
-    
+
     for (let i = 0; i < cardModalOpen.length; i++) {
         cardModalOpen[i].addEventListener("click", () => {
             cardModal.classList.remove("hidden");
@@ -319,6 +322,3 @@ function ModalOpenOnMainPage(event) {
         document.body.style.overflow = "unset";
     });
 }
-
-
-
