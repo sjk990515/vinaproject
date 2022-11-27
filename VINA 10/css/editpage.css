@@ -126,9 +126,9 @@
 .image-file-button img {
     position: absolute;
     top: 0;
-    left: 145px;
-    width: 210px;
-    height: 210px;
+    left: 115px;
+    width: 300px;
+    height: 300px;
 }
 
 .imageBtnText {
@@ -163,8 +163,8 @@
     font-family: "MonoplexKR-Regular";
     color: black;
     overflow-y: auto;
-    margin-top: 180px;
-    height: 370px;
+    margin-top: 290px;
+    height: 330px;
 }
 
 #DESC::-webkit-scrollbar {
@@ -196,7 +196,7 @@
 .Edit_Delete_btn {
     float: right;
     margin-right: 25px;
-    margin-top: 70px;
+    margin-top: 0;
 }
 
 .editBtn {
