@@ -235,8 +235,8 @@
 }
 
 .deleteBtn:hover {
-    transition:0.3s ease;
+    /* transition:0.3s ease; */
     cursor: pointer;
-    background-color: black;
-    color: white;
+    /* background-color: black; */
+    /* color: white; */
 }
