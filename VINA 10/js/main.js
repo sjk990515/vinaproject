@@ -294,18 +294,8 @@ function ModalOpenOnMainPage(event) {
                     <div class="PAGE">
                         <textarea id="DESC" cols="30" rows="20" placeholder="내용을 입력해주세요.">${Pdescription.textContent}</textarea>                        
                     </div>
-                </div>                
-                <div class="Edit_Delete_btn">
-                    <button onclick="save_comment(event)" type="button" class="saveBtn">
-                        Save
-                    </button>
-                    <button onclick="onEditing(event)" class="editBtn">
-                        Edit
-                    </button>
-                    <button  onclick="delete_comment(event)" class="deleteBtn">
-                        Delete
-                    </button>
-                </div>                
+                </div>              
+                         
             </div>
         </div>
     </div>
