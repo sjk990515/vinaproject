@@ -125,7 +125,7 @@
     color: lightblue;
     transform: translateY(-30px);
 }
-
+/*수정*/
 .SignUpContainer {
     box-sizing: border-box;
     margin: 0;
@@ -135,16 +135,17 @@
     background-color: rgba(0, 0, 0, 0.6);
     padding: 30px 40px;
     border-radius: 5px;
+    background:url(../image/hoxy1.jpeg) center center;
 }
-
+/*수정*/
 .SignUpContainer h2 {
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 32px;
-    margin-top: 15px;
+    font-size: 48px;
     color: #fff;
 }
 
@@ -164,6 +165,10 @@ form {
 .SignUpContainer form .form-control {
     margin: 15px 0 40px;
 }
+/*수정*/
+.SignInContainer p{
+    text-align:center;
+}
 
 .google {
     background-image: url(../image/google.png);
@@ -172,11 +177,11 @@ form {
 .github {
     background-image: url(../image/github.png);
 }
-
+/*수정*/
 .google,
 .github {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-size: 100%;
     background-position: center center;
