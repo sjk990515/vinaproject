@@ -124,8 +124,12 @@ export const handleLocation = async () => {
     if (path === "mainpage") {
         document.getElementById("profileNickname").placeholder =
             authService.currentUser.displayName ?? "닉네임 없음";
-        document.getElementById("welcome_nickname").textContent =
+        if(authService.currentUser.displayName === null){
+            
+        } else {
+            document.getElementById("welcome_nickname").textContent =
             authService.currentUser.displayName + "님" ?? "닉네임 없음";
+        }
         document.getElementById("profileView").src =
             authService.currentUser.photoURL ?? "../assets/blankProfile.webp";
         getPostingList();
