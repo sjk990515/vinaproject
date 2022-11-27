@@ -71,11 +71,23 @@ export const onFileChange = (event) => {
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%게시글 CRUD 기능%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+//게시물 이미지 업로드
+export const onPageImgChange = (event) => {
+    const theFile = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(theFile);
+    reader.onloadend = (finishedEvent) => {
+        const pageImgDataUrl = finishedEvent.currentTarget.result;
+        localStorage.setItem("pageImgDataUrl", pageImgDataUrl);
+        document.getElementById("pageImg").src = pageImgDataUrl;
+    };
+};
+
 export const save_comment = async (event) => {
     event.preventDefault();
     const DESC = document.getElementById("DESC");
     const postingTitle = document.getElementById("postingTitle");
-    const pageImg = document.getElementById("pageImg").src;
+    let pageImg = document.getElementById("pageImg").src;
     const { uid, photoURL, displayName } = authService.currentUser;
     try {
         await addDoc(collection(dbService, "DESC"), {
@@ -90,9 +102,10 @@ export const save_comment = async (event) => {
         alert("게시물 저장 완료!");
         DESC.value = "";
         postingTitle.value = "";
+        pageImg = "";
         // location.reload();
         // CacheStorage.delete(pageImg)
-        // caches.delete(input-file);
+        // caches.delete(input-file);        
         getPostingList();
         window.location.replace("#mainpage");
     } catch (error) {
@@ -107,7 +120,6 @@ export const onEditing = (event) => {
     const udBtns = document.querySelectorAll(".editBtn");
     udBtns.forEach((udBtn) => (udBtn.disabled = "true"));
     const cardBody = event.target.parentNode.parentNode;
-
     const commentText = cardBody.children[0].children[0];
     const commentInputP = cardBody.children[0].children[1];
     commentText.classList.add("noDisplay");
@@ -134,6 +146,7 @@ export const update_comment = async (event) => {
         alert(error);
     }
 };
+
 export const delete_comment = async (event) => {
     event.preventDefault();
     const id = event.target.name;
@@ -171,12 +184,8 @@ export const getPostingList = async () => {
                 <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${
             cmtObj.pageImg ?? null
         }" onerror="this.style.display='none';"></span>
-                <h3 id = "postingTitle-${
-                    cmtObj.id
-                }">${cmtObj.postingTitle}</h3>
-                <p id = "postingDescription-${
-                    cmtObj.id
-                }">${cmtObj.text}</p>
+                <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle}</h3>
+                <p id = "postingDescription-${cmtObj.id}">${cmtObj.text}</p>
                 <div>
                     <h4><span></span>${
                         cmtObj.nickname ?? "닉네임 없음"
@@ -207,6 +216,7 @@ export const getPostingList = async () => {
     });
 };
 
+// 로그인 전 게시물 뜨게
 export const basic = async () => {
     let cmtObjList = [];
     const q = query(
@@ -230,12 +240,8 @@ export const basic = async () => {
                 <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${
             cmtObj.pageImg ?? null
         }" onerror="this.style.display='none';"></span>
-                <h3 id = "postingTitle-${
-                    cmtObj.id
-                }">${cmtObj.postingTitle}</h3>
-                <p id = "postingDescription-${
-                    cmtObj.id
-                }">${cmtObj.text}</p>
+                <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle}</h3>
+                <p id = "postingDescription-${cmtObj.id}">${cmtObj.text}</p>
                 <div>
                     <h4><span></span>${
                         cmtObj.nickname ?? "닉네임 없음"
@@ -260,16 +266,4 @@ export const basic = async () => {
             });
         }
     });
-};
-
-//게시물 이미지 업로드
-export const onPageImgChange = (event) => {
-    const theFile = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(theFile);
-    reader.onloadend = (finishedEvent) => {
-        const pageImgDataUrl = finishedEvent.currentTarget.result;
-        localStorage.setItem("pageImgDataUrl", pageImgDataUrl);
-        document.getElementById("pageImg").src = pageImgDataUrl;
-    };
 };
