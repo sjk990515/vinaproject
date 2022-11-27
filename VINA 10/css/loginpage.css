@@ -9,7 +9,7 @@
 }
 .noDisplay {
     display: none;
-  }
+}
 
 .sp-login {
     background-color: #ffeae4;
@@ -51,7 +51,10 @@
     text-decoration: none;
     color: coral;
 }
-
+.SignUpContainer > form > img {
+    width: 350px;
+    height: 450px;
+}
 .btn {
     cursor: pointer;
     display: inline-block;

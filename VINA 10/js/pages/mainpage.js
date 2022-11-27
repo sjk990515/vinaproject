@@ -134,6 +134,7 @@ export const update_comment = async (event) => {
         alert(error);
     }
 };
+
 export const delete_comment = async (event) => {
     event.preventDefault();
     const id = event.target.name;
@@ -147,6 +148,7 @@ export const delete_comment = async (event) => {
         }
     }
 };
+
 export const getPostingList = async () => {
     let cmtObjList = [];
     const q = query(
