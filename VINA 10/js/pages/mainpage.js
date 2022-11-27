@@ -134,7 +134,6 @@ export const update_comment = async (event) => {
         alert(error);
     }
 };
-
 export const delete_comment = async (event) => {
     event.preventDefault();
     const id = event.target.name;
@@ -182,7 +181,7 @@ export const getPostingList = async () => {
                     <h4><span></span>${
                         cmtObj.nickname ?? "닉네임 없음"
                     }</h4>                        
-                    <button name="${
+                    <button id="delete_btn" name="${
                         cmtObj.id
                     }" onclick="delete_comment(event)" class="${
             isOwner ? "deleteBtn" : "noDisplay"
@@ -197,6 +196,14 @@ export const getPostingList = async () => {
         div.innerHTML = temp_html;
         div.id = cmtObj.id;
         postingList.appendChild(div);
+
+        // 삭제 시 모달 안뜨게
+        const delete_btn = document.querySelectorAll("#delete_btn");
+        for (let i = 0; i < delete_btn.length; i++) {
+            delete_btn[i].addEventListener('click', () => {
+                div.removeEventListener("click", ModalOpenOnMainPage);
+            });
+        }
     });
 };
 
