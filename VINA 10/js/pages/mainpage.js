@@ -94,7 +94,6 @@ export const save_comment = async (event) => {
         // CacheStorage.delete(pageImg)
         // caches.delete(input-file);
         getPostingList();
-
         window.location.replace("#mainpage");
     } catch (error) {
         alert(error);
@@ -105,9 +104,10 @@ export const save_comment = async (event) => {
 export const onEditing = (event) => {
     // 수정버튼 클릭
     event.preventDefault();
-    const udBtns = document.querySelectorAll(".editBtn, .deleteBtn");
+    const udBtns = document.querySelectorAll(".editBtn");
     udBtns.forEach((udBtn) => (udBtn.disabled = "true"));
     const cardBody = event.target.parentNode.parentNode;
+    
     const commentText = cardBody.children[0].children[0];
     const commentInputP = cardBody.children[0].children[1];
     commentText.classList.add("noDisplay");
@@ -209,3 +209,4 @@ export const onPageImgChange = (event) => {
         document.getElementById("pageImg").src = pageImgDataUrl;
     };
 };
+

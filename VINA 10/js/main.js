@@ -257,9 +257,9 @@ function ModalOpenOnMainPage(event) {
     const Pphoto = document.querySelector(`#pageImg-${event.currentTarget.id}`);
     console.log(Pphoto);
     cardModalJieun.innerHTML = "";
-    const currentUid = authService.currentUser.uid;
-    const isOwner = currentUid === event.currentTarget.id;
-    console.log(isOwner);
+    // const currentUid = authService.currentUser.uid;
+    // const isOwner = currentUid === event.currentTarget.id;
+    // console.log(isOwner);
     const Ptemp_html = ` 
 <div class="cardModal" data-backdrop="static"> 
     <div class ="cardModal_overlay">
