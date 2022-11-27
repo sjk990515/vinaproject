@@ -173,10 +173,10 @@ export const getPostingList = async () => {
         }" onerror="this.style.display='none';"></span>
                 <h3 id = "postingTitle-${
                     cmtObj.id
-                }">${cmtObj.postingTitle.substring(0, 11)}</h3>
+                }">${cmtObj.postingTitle}</h3>
                 <p id = "postingDescription-${
                     cmtObj.id
-                }">${cmtObj.text.substring(0, 90)}</p>
+                }">${cmtObj.text}</p>
                 <div>
                     <h4><span></span>${
                         cmtObj.nickname ?? "닉네임 없음"
@@ -232,10 +232,10 @@ export const basic = async () => {
         }" onerror="this.style.display='none';"></span>
                 <h3 id = "postingTitle-${
                     cmtObj.id
-                }">${cmtObj.postingTitle.substring(0, 11)}</h3>
+                }">${cmtObj.postingTitle}</h3>
                 <p id = "postingDescription-${
                     cmtObj.id
-                }">${cmtObj.text.substring(0, 90)}</p>
+                }">${cmtObj.text}</p>
                 <div>
                     <h4><span></span>${
                         cmtObj.nickname ?? "닉네임 없음"

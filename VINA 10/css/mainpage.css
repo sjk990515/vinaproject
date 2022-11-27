@@ -391,6 +391,9 @@ body {
 .main_content > div > div > h3 {
     font-size: 24px;
     margin: 10px 0 0 10px;
+    text-overflow: ellipsis;
+    width:290px;
+    overflow:hidden;
 }
 
 .main_content > div > div > p {
@@ -398,6 +401,10 @@ body {
     margin: 10px 10px 0 10px;
     word-break: break-all;
     color:#727272;
+    text-overflow: ellipsis;
+    height:120px;
+    width:290px;
+    overflow:hidden;
 }
 
 .main_content > div > div > div {
