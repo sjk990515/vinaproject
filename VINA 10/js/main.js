@@ -307,7 +307,8 @@ function ModalOpenOnMainPage(event) {
     const cardModalOpen = document.querySelectorAll(".main_box");
     const cardModal = document.querySelector(".cardModal");
     const cardModalClose = document.querySelector(".cardModalExit");
-    
+    const cardModalSave = document.querySelector(".saveBtn");
+    const input_file = document.querySelector("#input_file");
     for (let i = 0; i < cardModalOpen.length; i++) {
         cardModalOpen[i].addEventListener("click", () => {
             cardModal.classList.remove("hidden");
@@ -318,6 +319,21 @@ function ModalOpenOnMainPage(event) {
         cardModal.classList.add("hidden");
         document.body.style.overflow = "unset";
     });
+
+    cardModalSave.addEventListener("click", () => {
+        caches.delete(cacheName).then(() => { });
+        document.getElementById("pageImg").src = "";
+        // input_file.uploadReady = false
+    //     Array.from(files)
+    //     .filter(file => file.lastModified != removeTargetId)
+    //     .forEach(file => {
+    //         dataTranster.items.add(file);
+    //     });
+
+    // document.querySelector('#input_file').files = dataTranster.files;
+    });
+
+
 }
 
 

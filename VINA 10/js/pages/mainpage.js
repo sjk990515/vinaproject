@@ -134,6 +134,8 @@ export const update_comment = async (event) => {
         alert(error);
     }
 };
+
+/*삭제*/
 export const delete_comment = async (event) => {
     event.preventDefault();
     const id = event.target.name;
@@ -147,6 +149,8 @@ export const delete_comment = async (event) => {
         }
     }
 };
+/*//삭제*/
+
 export const getPostingList = async () => {
     let cmtObjList = [];
     const q = query(
@@ -167,12 +171,6 @@ export const getPostingList = async () => {
     cmtObjList.forEach((cmtObj) => {
         const isOwner = currentUid === cmtObj.creatorId;
         const temp_html = `
-<<<<<<< HEAD
-                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${cmtObj.pageImg ?? null
-            }" onerror="this.style.display='none';"></span>
-                <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle.substring(0, 11)}</h3>
-                <p id = "postingDescription-${cmtObj.id}">${cmtObj.text.substring(0, 90)}</p>
-=======
                 <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${
             cmtObj.pageImg ?? null
         }" onerror="this.style.display='none';"></span>
@@ -182,12 +180,11 @@ export const getPostingList = async () => {
                 <p id = "postingDescription-${
                     cmtObj.id
                 }">${cmtObj.text.substring(0, 90)}</p>
->>>>>>> jieun
                 <div>
                     <h4><span></span>${
                         cmtObj.nickname ?? "닉네임 없음"
                     }</h4>                        
-                    <button name="${
+                    <button id="delete_btn" name="${
                         cmtObj.id
                     }" onclick="delete_comment(event)" class="${
             isOwner ? "deleteBtn" : "noDisplay"
@@ -195,16 +192,22 @@ export const getPostingList = async () => {
                     </div> 
                 </div>
             `;
-<<<<<<< HEAD
-=======
-
->>>>>>> jieun
         const div = document.createElement("div");
         div.classList.add("main_box");
         div.addEventListener("click", ModalOpenOnMainPage);
         div.innerHTML = temp_html;
         div.id = cmtObj.id;
         postingList.appendChild(div);
+
+        //삭제시 모달 안뜨게
+        const delete_btn = document.querySelectorAll("#delete_btn");
+
+        for (var i = 0; i < delete_btn.length; i++) {
+            delete_btn[i].addEventListener('click', () => {
+                div.removeEventListener("click", ModalOpenOnMainPage);
+              });
+        }
+        
     });
 };
 
