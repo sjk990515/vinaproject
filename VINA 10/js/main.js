@@ -46,6 +46,7 @@ window.onEditing = onEditing;
 window.delete_comment = delete_comment;
 window.ModalOpenOnMainPage = ModalOpenOnMainPage;
 window.onPageImgChange = onPageImgChange;
+
 // window.goToProfile = goToProfile;
 // window.route = route;
 
@@ -256,6 +257,9 @@ function ModalOpenOnMainPage(event) {
     const Pphoto = document.querySelector(`#pageImg-${event.currentTarget.id}`);
     console.log(Pphoto);
     cardModalJieun.innerHTML = "";
+    const currentUid = authService.currentUser.uid;
+    const isOwner = currentUid === event.currentTarget.id;
+    console.log(isOwner);
     const Ptemp_html = ` 
 <div class="cardModal" data-backdrop="static"> 
     <div class ="cardModal_overlay">
@@ -275,12 +279,9 @@ function ModalOpenOnMainPage(event) {
                         accept="image/*" /><br />
 
                     <div class="PAGE">
-                        <textarea id="DESC" cols="30" rows="20" placeholder="내용을 입력해주세요.">${Pdescription.textContent}</textarea>
-                        <!-- <div class="description" contenteditable="true">
-                                        <img id="imgView" src="https://via.placeholder.com/400">
-                                    </div>             -->
+                        <textarea id="DESC" cols="30" rows="20" placeholder="내용을 입력해주세요.">${Pdescription.textContent}</textarea>                        
                     </div>
-                </div>
+                </div>                
                 <div class="Edit_Delete_btn">
                     <button onclick="save_comment(event)" type="button" class="saveBtn">
                         Save
@@ -288,24 +289,25 @@ function ModalOpenOnMainPage(event) {
                     <button onclick="onEditing(event)" class="editBtn">
                         Edit
                     </button>
-                    <button onclick="delete_desc(event)" class="deleteBtn">
+                    <button  onclick="delete_comment(event)" class="deleteBtn">
                         Delete
                     </button>
-                </div>
+                </div>                
             </div>
         </div>
     </div>
 </div>
-
-
 `;
     const div12 = document.createElement("div");
     div12.innerHTML = Ptemp_html;
     console.log(cardModalJieun);
     cardModalJieun.appendChild(div12);
+
+
     const cardModalOpen = document.querySelectorAll(".main_box");
     const cardModal = document.querySelector(".cardModal");
     const cardModalClose = document.querySelector(".cardModalExit");
+    
     for (let i = 0; i < cardModalOpen.length; i++) {
         cardModalOpen[i].addEventListener("click", () => {
             cardModal.classList.remove("hidden");
@@ -317,3 +319,6 @@ function ModalOpenOnMainPage(event) {
         document.body.style.overflow = "unset";
     });
 }
+
+
+

@@ -43,6 +43,7 @@ export const handleLocation = async () => {
             modal.classList.add("hidden");
             document.body.style.overflow = "unset";
         });
+
         // 게시물 페이지 모달
         const pageOpen = document.querySelector(".pageBTN");
         const pageOpen2 = document.querySelector(".pageBTN2");
@@ -63,7 +64,7 @@ export const handleLocation = async () => {
         // 게시판 delete 버튼
         const pageDel = document.querySelector(".deleteBtn");
         const pageDesc = document.querySelector("#DESC");
-        const pageTitle = document.querySelector(".title");
+        const pageTitle = document.querySelector("#postingTitle");
         pageDel.addEventListener("click", () => {
             pageTitle.value = "";
             pageDesc.value = "";

@@ -87,8 +87,14 @@ export const save_comment = async (event) => {
             pageImg: pageImg,
             nickname: displayName,
         });
+        alert("게시물 저장 완료!");
         DESC.value = "";
+        postingTitle.value = "";
+        // location.reload();
+        // CacheStorage.delete(pageImg)
+        // caches.delete(input-file);
         getPostingList();
+
         window.location.replace("#mainpage");
     } catch (error) {
         alert(error);
@@ -131,7 +137,7 @@ export const update_comment = async (event) => {
 export const delete_comment = async (event) => {
     event.preventDefault();
     const id = event.target.name;
-    const ok = window.confirm("해당 응원글을 정말 삭제하시겠습니까?");
+    const ok = window.confirm("해당 게시물을 정말 삭제하시겠습니까?");
     if (ok) {
         try {
             await deleteDoc(doc(dbService, "DESC", id));
@@ -161,16 +167,38 @@ export const getPostingList = async () => {
     cmtObjList.forEach((cmtObj) => {
         const isOwner = currentUid === cmtObj.creatorId;
         const temp_html = `
+<<<<<<< HEAD
                 <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${cmtObj.pageImg ?? null
             }" onerror="this.style.display='none';"></span>
                 <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle.substring(0, 11)}</h3>
                 <p id = "postingDescription-${cmtObj.id}">${cmtObj.text.substring(0, 90)}</p>
+=======
+                <span ><img id ="pageImg-${cmtObj.id}" class="cardImage" src="${
+            cmtObj.pageImg ?? null
+        }" onerror="this.style.display='none';"></span>
+                <h3 id = "postingTitle-${
+                    cmtObj.id
+                }">${cmtObj.postingTitle.substring(0, 11)}</h3>
+                <p id = "postingDescription-${
+                    cmtObj.id
+                }">${cmtObj.text.substring(0, 90)}</p>
+>>>>>>> jieun
                 <div>
-                    <h4><span></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>
-                    <p class="${isOwner ? "updateBtns" : "noDisplay"
-            }>follower</p>
+                    <h4><span></span>${
+                        cmtObj.nickname ?? "닉네임 없음"
+                    }</h4>                        
+                    <button name="${
+                        cmtObj.id
+                    }" onclick="delete_comment(event)" class="${
+            isOwner ? "deleteBtn" : "noDisplay"
+        }">삭제</button>
+                    </div> 
                 </div>
             `;
+<<<<<<< HEAD
+=======
+
+>>>>>>> jieun
         const div = document.createElement("div");
         div.classList.add("main_box");
         div.addEventListener("click", ModalOpenOnMainPage);
@@ -179,6 +207,8 @@ export const getPostingList = async () => {
         postingList.appendChild(div);
     });
 };
+
+//게시물 이미지 업로드
 export const onPageImgChange = (event) => {
     const theFile = event.target.files[0];
     const reader = new FileReader();

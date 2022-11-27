@@ -7,6 +7,9 @@
 * {
     margin: 0;
 }
+.noDisplay {
+    display: none;
+  }
 
 .sp-login {
     background-color: #ffeae4;

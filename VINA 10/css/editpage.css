@@ -111,26 +111,26 @@
 }
 
 /* 이미지 파일 첨부 영역 */
-.editPage{
-    position:relative;
+.editPage {
+    position: relative;
 }
 
 .image-file-button {
-    top:150px;
-    left:15%;
-    transform:translateX(-50%);
-    position:absolute;
+    top: 150px;
+    left: 15%;
+    transform: translateX(-50%);
+    position: absolute;
     display: flex;
     cursor: pointer;
     font-size: 1em;
 }
 
-.image-file-button img{
-    position:absolute;
-    top:0;
-    left:145px;
-    width:210px;
-    height:210px;
+.image-file-button img {
+    position: absolute;
+    top: 0;
+    left: 145px;
+    width: 210px;
+    height: 210px;
 }
 
 .imageBtnText {
@@ -165,8 +165,8 @@
     font-family: "MonoplexKR-Regular";
     color: black;
     overflow-y: auto;
-    margin-top:180px;
-    height:370px;
+    margin-top: 180px;
+    height: 370px;
 }
 
 #DESC::-webkit-scrollbar {
@@ -192,6 +192,9 @@
 } */
 
 /* 수정, 삭제 버튼 영역 */
+.noDisplay {
+    display: none;
+}
 .Edit_Delete_btn {
     float: right;
     margin-right: 25px;
