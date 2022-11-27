@@ -62,32 +62,30 @@
 .pageExit {
     float: right;
     margin: 5px 10px 5px 0;
-    padding: 0 5px 0 5px;
+    padding:0 10px;
     background-color: transparent;
     border: transparent;
     border-radius: 20px;
-    font-size: 1em;
+    font-size: 30px;
 }
 
 .pageExit:hover {
     cursor: pointer;
-    background-color: black;
-    color: white;
+    color: #ffccbc;
 }
 .cardModalExit {
     float: right;
-    margin: 5px 10px 5px 0;
+    margin: 5px 15px 5px 0;
     padding: 0 5px 0 5px;
     background-color: transparent;
     border: transparent;
     border-radius: 20px;
-    font-size: 1em;
+    font-size: 30px;
 }
 
 .cardModalExit:hover {
     cursor: pointer;
-    background-color: black;
-    color: white;
+    color:#ffccbc;
 }
 
 /* 제목 */
@@ -98,7 +96,7 @@
     font-size: 1.5em;
     width: 640px;
     height: 60px;
-    margin: 30px 30px 5px 30px;
+    margin: 10px 30px 5px 30px;
 }
 
 .text_line {

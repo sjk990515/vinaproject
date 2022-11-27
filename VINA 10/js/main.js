@@ -279,7 +279,7 @@ function ModalOpenOnMainPage(event) {
         <div class="postWrap">
             <div class="editContainer">
                 <div class="editPage">
-                    <button class="cardModalExit">&#128473;</button>
+                    <button class="cardModalExit">X</button>
                     <div class="postTitle">
                         <textarea id="postingTitle" placeholder="제목을 입력하세요.">${Ptitle.textContent}</textarea>
                     </div>

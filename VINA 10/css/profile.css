@@ -70,11 +70,11 @@ input[type="button"] {
     background-color: transparent;
     border: transparent;
     border-radius: 20px;
+    font-size:30px;
 }
 
 input[type="button"]:hover {
-    background-color: black;
-    color: white;
+    color: #ffccbc;
 }
 
 /* 프로필 사진 첨부 영역 */
