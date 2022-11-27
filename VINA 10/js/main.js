@@ -63,6 +63,7 @@ function toggleopenClose() {
 
 //다크모드
 function nightsun(event) {
+    const delete_btn = document.querySelectorAll("#delete_btn");
     const google_icon = document.querySelectorAll(".material-icons");
     const Main_menu = document.querySelectorAll(".main_menu div");
     const hamburger = document.querySelectorAll(".main_menu > ul li ");
@@ -101,6 +102,10 @@ function nightsun(event) {
             ".main_menu > div .dropdown_content"
         ).style.background = "#000";
         document.querySelector(".search_input").style.color = "#fff";
+
+        for (var i = 0; i < delete_btn.length; i++) {
+            delete_btn[i].style.color = "#fff";
+        }
 
         for (var i = 0; i < google_icon.length; i++) {
             google_icon[i].style.color = "#fff";
@@ -167,6 +172,10 @@ function nightsun(event) {
             ".main_menu > div .dropdown_content"
         ).style.background = "#fff";
         document.querySelector(".search_input").style.color = "#000";
+
+        for (var i = 0; i < delete_btn.length; i++) {
+            delete_btn[i].style.color = "#000";
+        }
 
         for (var i = 0; i < google_icon.length; i++) {
             google_icon[i].style.color = "#000";
