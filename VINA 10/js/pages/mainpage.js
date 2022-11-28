@@ -43,6 +43,8 @@ export const changeProfile = async (event) => {
         .then(() => {
             alert("프로필 수정 완료");
             window.location.hash = "#mainpage";
+            document.getElementById("welcome_nickname").textContent =
+                authService.currentUser.displayName + "님" ?? "닉네임 없음";
         })
         .catch((error) => {
             alert("프로필 수정 실패");
@@ -105,7 +107,7 @@ export const save_comment = async (event) => {
         pageImg = "";
         // location.reload();
         // CacheStorage.delete(pageImg)
-        // caches.delete(input-file);        
+        // caches.delete(input-file);
         getPostingList();
         window.location.replace("#mainpage");
     } catch (error) {
@@ -187,9 +189,16 @@ export const getPostingList = async () => {
                 <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle}</h3>
                 <p id = "postingDescription-${cmtObj.id}">${cmtObj.text}</p>
                 <div>
-                    <h4><span><img id ="profileImg-${cmtObj.id}" class="profileImage" src="${
-                        cmtObj.profile ?? null}"></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>                        
-                    <button id="delete_btn" name="${cmtObj.id}" onclick="delete_comment(event)" class="${
+                    <h4><span><img id ="profileImg-${
+                        cmtObj.id
+                    }" class="profileImage" src="${
+            cmtObj.profile ?? null
+        }"></span>${
+            cmtObj.nickname ?? "닉네임 없음"
+        }</h4>                        
+                    <button id="delete_btn" name="${
+                        cmtObj.id
+                    }" onclick="delete_comment(event)" class="${
             isOwner ? "deleteBtn" : "noDisplay"
         }">삭제</button>
                     </div> 
@@ -240,7 +249,11 @@ export const basic = async () => {
                 <h3 id = "postingTitle-${cmtObj.id}">${cmtObj.postingTitle}</h3>
                 <p id = "postingDescription-${cmtObj.id}">${cmtObj.text}</p>
                 <div>
-                    <h4><span><img id ="profileImg-${cmtObj.id}" class="profileImage" src="${cmtObj.profile ?? null}"></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>                      
+                    <h4><span><img id ="profileImg-${
+                        cmtObj.id
+                    }" class="profileImage" src="${
+            cmtObj.profile ?? null
+        }"></span>${cmtObj.nickname ?? "닉네임 없음"}</h4>                      
                     
                     </div> 
                 </div>
